@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom'
+
+// page imports
+import HomePage from '../HomePage/HomePage'
 import SignupPage from '../SignupPage/SignupPage'
 import LoginPage from '../LoginPage/LoginPage'
 import userService from '../../utils/userService';
+import MyTeamsPage from '../MyTeamsPage/MyTeamsPage';
+
+//component imports
 import NavBar from '../../components/NavBar/NavBar'
 
 
@@ -13,7 +19,7 @@ class App extends Component {
     user: userService.getUser()
   
   }
-  
+
   handleLogout = () => {
     userService.logout();
     this.setState({user: null});
@@ -31,12 +37,18 @@ class App extends Component {
           user={this.state.user}
           handleLogout={this.handleLogout}
         />
-        <header className='header-footer'>Team Tracker</header>
+        <div className='pageTitle'>
+          <h1>This is app.js</h1>
+        </div>
         <Switch>
-          {/* <Route exact path="/" render={() =>
-            // <HomePage />
+          <Route exact path="/" render={() =>
+            <HomePage />
           }
-          /> */}
+          />
+          <Route exact path="/myTeams" render={() =>
+            <MyTeamsPage />
+          }
+          />
           <Route exact path='/login' render={({ history }) => 
             <LoginPage
               history={history}
