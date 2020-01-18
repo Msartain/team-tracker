@@ -1,13 +1,21 @@
-.NavBar {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 20px;
-  }
-  
-  .NavBar-link {
-    margin: 0 10px;
-  }
-  
-  .NavBar-welcome {
-    color: grey;
-  }
+.navbar {
+	background:black;
+}
+
+.navbar-brand {
+	padding: 8px;
+}
+
+
+.navbar .nav-link {
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+.navbar .nav-link:hover {
+	color: blue;
+}
+
+.fa-bars {
+	color: white;
+}

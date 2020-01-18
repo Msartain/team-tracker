@@ -10,10 +10,10 @@ import NavBar from '../../components/NavBar/NavBar'
 class App extends Component {
  
   state = {
-    // Initialize user if there's a token, otherwise null
     user: userService.getUser()
   
   }
+  
   handleLogout = () => {
     userService.logout();
     this.setState({user: null});

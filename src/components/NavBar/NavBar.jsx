@@ -1,27 +1,81 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './NavBar.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./NavBar.css";
 
-const NavBar = (props) => {
-    let nav = props.user ?
-      <div>
-        <Link to='/high-scores' className='NavBar-link'>HIGH SCORES</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <Link to='' className='NavBar-link' onClick={props.handleLogout} >LOG OUT</Link>        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
-      </div>
-      :
-      <div>
-        <Link to='/login' className='NavBar-link'>LOG IN</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
-      </div>;
-  
-    return (
-      <div className='NavBar'>
-        {nav}
+const Navbar = props => {
+  let nav =
+    props.user === null ? (
+      <ul className="navbar-nav ml-auto">
+        <Link to="/signup">
+          <li className="nav-item">
+            <div className="nav-link">Signup</div>
+          </li>
+        </Link>
+        <Link to="/login">
+          <li className="nav-item">
+            <div className="nav-link">Login</div>
+          </li>
+        </Link>
+      </ul>
+    ) : (
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto">
+          <Link to="/myTeams" style={{ textDecoration: "none" }}>
+            <li className="nav-item">
+              <div className="nav-link">My Teams</div>
+            </li>
+          </Link>
+          <Link to="/search" style={{ textDecoration: "none" }}>
+            <li className="nav-item">
+              <div className="nav-link">Search</div>
+            </li>
+          </Link>
+        </ul>
+
+        <ul className="navbar-nav ml-auto">
+          <Link to="/">
+            <li className="nav-item">
+              <div className="nav-link" onClick={props.handleLogout}>
+                Logout
+              </div>
+            </li>
+          </Link>
+        </ul>
       </div>
     );
-  };
 
-export default NavBar;
+  return (
+    <div>
+      <nav className="navbar navbar-expand-lg">
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <div className="navbar-brand" href="#"></div>
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        ></button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <Link to="" style={{ textDecoration: "none" }}>
+              <li className="nav-item active">
+                <div className="nav-link">
+                  Team Tracker<span className="sr-only">(current)</span>
+                </div>
+              </li>
+            </Link>
+          </ul>
+          {nav}
+        </div>
+      </nav>
+      {props.children}
+    </div>
+  );
+};
+
+export default Navbar;
