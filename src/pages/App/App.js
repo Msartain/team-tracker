@@ -93,7 +93,11 @@ class App extends Component {
             exact
             path="/showpage"
             render={({ history }) => (
-              <ShowPage history={history} team={this.state.teams} />
+              <ShowPage 
+                history={history} 
+                team={this.state.teams} 
+                user={this.state.user}
+                />
             )}
           />
         </Switch>

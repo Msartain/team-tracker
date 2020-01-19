@@ -4,11 +4,14 @@ module.exports = {
     add
 }
 
-function add(req, res){
+async function add(req, res){
     console.log('controller hit')
     console.log(req.body)
-    req.user.teams.push(req.body);
-    req.user.save(function(err){
+    let user = await User.findOne({email: req.body.user})
+    console.log(user)
+    user.teams.push(req.body);
+    user.save(function(err){
+        console.log(user)
         res.status(201).json('added to db');
     });
 }

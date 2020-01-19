@@ -15,6 +15,7 @@ const ShowPage = (props) => {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
+                user: props.user.email,
                 team_id: props.team.team_id,
                 country: props.team.country,
                 founded: props.team.founded,
