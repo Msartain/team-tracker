@@ -40,7 +40,7 @@ const Navbar = props => {
               </div>
             </li>
           </Link>
-        </ul>
+          <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>        </ul>
       </div>
     );
 

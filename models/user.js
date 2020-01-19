@@ -3,10 +3,22 @@ const bcrypt = require('bcrypt')
 
 const SALT_ROUNDS = 6;
 
+
+const teamSchema = new mongoose.Schema({
+  team_id: Number,
+  country: String,
+  founded: Number,
+  logo: String,
+  name: String,
+  venue_name: String,
+  venue_capacity: Number
+})
+
 const userSchema = new mongoose.Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
-  password: String
+  password: String,
+  teams: [teamSchema]
 }, {
   timestamps: true
 });

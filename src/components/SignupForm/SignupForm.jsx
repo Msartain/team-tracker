@@ -35,9 +35,9 @@ class SignupForm extends Component {
     }
   }
 
-  // isFormInvalid() {
-  //   return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
-  // }
+  isFormInvalid() {
+    return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
+  }
 
 
   render() {
