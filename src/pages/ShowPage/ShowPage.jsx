@@ -1,6 +1,7 @@
 import React from "react";
 import getTeamInfo from "../App/App";
 import { Link } from "react-router-dom";
+import './ShowPage.css'
 
 const ShowPage = props => {
 
@@ -33,7 +34,7 @@ const ShowPage = props => {
       team = props.team[0].api.teams[0]
       league = props.team[1].api.standings[0]
       display = (  
-        <div>
+        <div className='teamContainer'>
             <div className='teamInfo'>
                 <img src={team.logo} alt="Team Logo" />
                 <p>Team name: {team.name}</p>
@@ -43,35 +44,25 @@ const ShowPage = props => {
                 <p>Venue capacity: {team.venue_capacity}</p>
             </div>
             <div className="leagueInfo">
-                <th>team Name</th>
-                <th>Points</th>
-                <tr><td>{league[0].teamName}</td><td>{league[0].points}</td></tr>
-                <tr><td>{league[1].teamName}</td></tr>
-                <tr><td>{league[2].teamName}</td></tr>
-                <tr><td>{league[3].teamName}</td></tr>
-                <tr><td>{league[4].teamName}</td></tr>
-                <tr><td>{league[5].teamName}</td></tr>
-                <tr><td>{league[6].teamName}</td></tr>
-                <tr><td>{league[7].teamName}</td></tr>
-                <tr><td>{league[8].teamName}</td></tr>
-                <tr><td>{league[9].teamName}</td></tr>
-                <tr><td>{league[10].teamName}</td></tr>
-                <tr><td>{league[11].teamName}</td></tr>
-                <tr><td>{league[12].teamName}</td></tr>
-                <tr><td>{league[13].teamName}</td></tr>
-                <tr><td>{league[14].teamName}</td></tr>
-                <tr><td>{league[15].teamName}</td></tr>
-                <tr><td>{league[16].teamName}</td></tr>
-                <tr><td>{league[17].teamName}</td></tr>
-                <tr><td>{league[18].teamName}</td></tr>
-                <tr><td>{league[19].teamName}</td></tr>
-                    
-                
-            </div>
-      </div>  
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Pos</th>
+                            <th scope="col">Team</th>
+                            <th scope="col">Points</th>
+                            <th scope="col">Form</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {league.map(league => (
+                            <tr><td>{league.rank}</td><td>{league.teamName}</td><td>{league.points}</td><td>{league.forme}</td></tr>
+                        ))}
+                    </tbody>
+                </table>
+                </div>
+            </div>  
       )
   }
-  console.log(team)
   return (
       <div>
         <h1>This is the Show page</h1>
