@@ -1,5 +1,4 @@
 import React from "react";
-import getTeamInfo from "../App/App";
 import { Link } from "react-router-dom";
 import "./ShowPage.css";
 
@@ -74,7 +73,7 @@ const ShowPage = props => {
                   <tr>
                     <td>{league.rank}</td>
                     <td>
-                      <img src={league.logo} width="30" height="30" />
+                      <img src={league.logo} alt="team logo"width="30" height="30" />
                     </td>
                     <td>{league.teamName}</td>
                     <td>{league.points}</td>

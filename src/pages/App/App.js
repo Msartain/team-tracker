@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
+import getTeamInfo from '../../utils/team-search-api';
 
 // page imports
 import HomePage from "../HomePage/HomePage";
@@ -108,47 +109,8 @@ class App extends Component {
 }
 export default App;
 
-async function getTeamInfo(team) {
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  // fetch for one url
 
-  // let data = await fetch(
-  //   `https://api-football-v1.p.rapidapi.com/v2/teams/search/${team}`,
-  //   {
-  //     headers: {
-  //       "X-RapidAPI-Key": "d690ddb5d3mshc99b2805d0e2c7ap171589jsn1f3bd4c4ffaf"
-  //     }
-  //   }
-  // );
-  // let jsonData = await data.json();
-  // return await jsonData.api.teams[0];
 
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  // fetch for multiple urls
 
-  const promiseArray = [
-    `https://api-football-v1.p.rapidapi.com/v2/teams/search/${team}`,
-    "https://api-football-v1.p.rapidapi.com/v2/leagueTable/524"
-  ];
-  const options = {
-    headers: {
-      "X-RapidAPI-Key": "d690ddb5d3mshc99b2805d0e2c7ap171589jsn1f3bd4c4ffaf"
-    }
-  };
-  async function getThings(urls, options) {
-    try {
-      const data = await Promise.all(
-        urls.map(async url => {
-          const response = await fetch(url, options);
-          const data = await response.json();
-          return data;
-        })
-      ).then(result => result);
-      return data;
-    } catch (error) {
-      throw new Error(error);
-    }
-  }
-  const response = await getThings(promiseArray, options);
-  return await response;
-}
+
+
