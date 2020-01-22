@@ -6,7 +6,6 @@ module.exports = {
 
 async function add(req, res){
     console.log('controller hit')
-    console.log(req.body)
     let user = await User.findOne({email: req.body.user})
     console.log(user)
     user.teams.push(req.body);

@@ -38,9 +38,24 @@ class App extends Component {
 
   handleOnClick = () => {
     getTeamInfo(this.state.search).then(results => {
+      console.log(results);
+
       this.setState({ teams: results });
     });
   };
+
+  // handleClick2 = async (event) => {
+  //     const [team, league] = await getTeamInfo(this.state.search)
+  //     this.setState({
+  //       team: team,
+  //       league: league
+  //     })
+  // }
+  // handleOnClick = () => {
+  //   getTeamInfo(this.state.search).then(getLeagueInfo()).then(results => {
+  //     this.setState({ teams: results });
+  //   })
+  // };
 
   // - - - - lifecycle methods - - - - - - -
 
@@ -93,11 +108,11 @@ class App extends Component {
             exact
             path="/showpage"
             render={({ history }) => (
-              <ShowPage 
-                history={history} 
-                team={this.state.teams} 
+              <ShowPage
+                history={history}
+                team={this.state.teams}
                 user={this.state.user}
-                />
+              />
             )}
           />
         </Switch>
@@ -108,28 +123,80 @@ class App extends Component {
 export default App;
 
 async function getTeamInfo(team) {
-  // let t = '';
-  // await fetch(`https://api-football-v1.p.rapidapi.com/v2/teams/search/${team}`, {
-  //   headers: {
-  //     "X-RapidAPI-Key": "d690ddb5d3mshc99b2805d0e2c7ap171589jsn1f3bd4c4ffaf"
+  // let data = await fetch(
+  //   `https://api-football-v1.p.rapidapi.com/v2/teams/search/${team}`,
+  //   {
+  //     headers: {
+  //       "X-RapidAPI-Key": "d690ddb5d3mshc99b2805d0e2c7ap171589jsn1f3bd4c4ffaf"
+  //     }
   //   }
-  // })
-  //   .then(response => {
-  //     return response.json();
-  //   })
-  //   .then(team => {
-  //     // console.log(team.api.teams[0]);
-  //     t = team.api.teams[0];
-  //     // return t
-  //   });
-  let data = await fetch(
+  // );
+  // let jsonData = await data.json();
+  // return await jsonData.api.teams[0];
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  const promiseArray = [
     `https://api-football-v1.p.rapidapi.com/v2/teams/search/${team}`,
-    {
-      headers: {
-        "X-RapidAPI-Key": "d690ddb5d3mshc99b2805d0e2c7ap171589jsn1f3bd4c4ffaf"
-      }
+    "https://api-football-v1.p.rapidapi.com/v2/leagueTable/524"
+  ];
+  const options = {
+    headers: {
+      "X-RapidAPI-Key": "d690ddb5d3mshc99b2805d0e2c7ap171589jsn1f3bd4c4ffaf"
     }
-  );
-  let jsonData = await data.json();
-  return await jsonData.api.teams[0];
+  };
+  async function getThings(urls, options) {
+    try {
+      const data = await Promise.all(
+        urls.map(async url => {
+          const response = await fetch(url, options);
+          const data = await response.json();
+
+          return data;
+        })
+      ).then(result => result);
+      // console.log(team, league);
+      return data;
+    } catch (error) {
+      console.error(error);
+      throw new Error(error);
+    }
+  }
+  const response = await getThings(promiseArray, options);
+  return await response;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  //     await Promise.all([
+  //    fetch(`https://api-football-v1.p.rapidapi.com/v2/teams/search/${team}`).then(value => json()),
+  //    fetch('https://api-football-v1.p.rapidapi.com/v2/leagueTable/524').then(value => json()),
+  //    {
+  //      headers: {"X-RapidAPI-Key": "d690ddb5d3mshc99b2805d0e2c7ap171589jsn1f3bd4c4ffaf"}
+  //     }
+  //  ])
+  //  .then((value) => {
+  //    console.log(value)
+  //  })
+  //  .catch((err) => {
+  //   console.log(err);
+  // });
+  //  let jsonData = await data.json()
+  //  console.log(jsonData)
+  // }
+  // catch(err){
+  //   console.log(err)
 }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// async function getLeagueInfo(){
+//   let leagueData = await fetch('https://api-football-v1.p.rapidapi.com/v2/leagueTable/524',
+//   {
+//     headers: {
+//       "X-RapidAPI-Key": "d690ddb5d3mshc99b2805d0e2c7ap171589jsn1f3bd4c4ffaf"
+//     }
+//   }
+//   )
+//   let jsonLeagueData = await leagueData.json();
+//   console.log(jsonLeagueData.api.standings)
+//   return await jsonLeagueData.api.results.standings
+// }
