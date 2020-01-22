@@ -1,0 +1,28 @@
+.card-size {
+    width: 15rem;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-size img {
+    width: 10rem;
+    height: auto;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px 0;
+    flex-wrap: wrap;
+}
+
+.card-body{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}

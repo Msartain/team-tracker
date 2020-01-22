@@ -1,31 +1,56 @@
 import React, {Component} from 'react';
+import './MyTeams.css'
 import * as teamsAPI from '../../utils/team-search-api';
 
-//retreive all teams from db
-
-//.map() all teams across my teams page in cards
 
 class MyTeamsPage extends Component{
     state = {
-        teams: []
+        teams: [{teams : []}],
     }
 
-
+  
    async componentDidMount(){
     await teamsAPI.getAll().then(results => {
         this.setState({teams : results})
         });
     }
 
-
+    
     render(){
-        return(
-            <div>
-                <div className="pageTitle">
-                     <h1>This is the My Teams Page</h1>
+
+        if(this.state.teams[0].teams.length > 0){
+            
+            return(
+                <div className="card-container">
+                {this.state.teams[0].teams.map(team => (
+                    // <div>
+                    // <p>{team.name}</p>
+                    // <img src={team.logo} />
+                    // </div>
+                    
+                    <div class="card card-size" >
+                    <img src={team.logo} class="card-img-top" alt="team logo"/>
+                    <div class="card-body">
+                        <h5 class="card-title">{team.name}</h5>
+                        <p class="card-text">Founded: {team.founded}</p>
+                    </div>
+                        <a href="#" class="btn btn-primary">Delete Team</a>
+                    </div>
+                ))}
                 </div>
-            </div>
-        )
+            ) 
+        }else {
+
+            return(
+                <div>
+                    <div>
+                         <h1>loading</h1>
+                    </div>
+                </div>
+            )
+      
+        }
+    
     }
 }
 
