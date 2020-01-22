@@ -33,6 +33,7 @@ const ShowPage = props => {
     team = props.team[0].api.teams[0];
     league = props.team[1].api.standings[0];
     display = (
+      <div className="show">
       <div class="jumbotron">
         <div className="teamContainer">
           <div className="teamInfo">
@@ -54,7 +55,8 @@ const ShowPage = props => {
               </Link>
             )}
           </div>
-
+          </div>
+      </div>
           <div className="leagueInfo">
             <table class="table table-dark">
               <thead>
@@ -84,7 +86,6 @@ const ShowPage = props => {
             </table>
           </div>
         </div>
-      </div>
     );
   }
   return <div>{display}</div>;
