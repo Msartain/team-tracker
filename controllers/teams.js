@@ -2,9 +2,20 @@ const User = require('../models/user');
 
 module.exports = {
     add,
-    index
+    index,
+    delete: deleteTeam
 }
 
+
+function deleteTeam(req, res){
+    console.log('delete controller hit')
+    // User.findOne({'posts._id': req.params.id}).then(function(user){
+    //     let post = user.posts.id(req.params.id);
+    //     post.remove(req.params.id)
+    //     user.save(function(err){
+    //        res.status(201).json(user)
+    // })
+}
 
 async function index(req, res){
     console.log('index controller hit')

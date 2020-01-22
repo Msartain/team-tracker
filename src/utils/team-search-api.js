@@ -1,3 +1,13 @@
+
+export function DeleteTeam() {
+  return fetch("/api/teams/delete",{
+    method: 'DELETE'
+  })
+  .then(res => res.json()
+    )
+  };
+
+
 export function getAll(){
     return fetch('/api/teams/index')
     .then(res => res.json());
@@ -5,23 +15,6 @@ export function getAll(){
 
 
 async function getTeamInfo(team) {
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // fetch for one url
-  
-    // let data = await fetch(
-    //   `https://api-football-v1.p.rapidapi.com/v2/teams/search/${team}`,
-    //   {
-    //     headers: {
-    //       "X-RapidAPI-Key": "d690ddb5d3mshc99b2805d0e2c7ap171589jsn1f3bd4c4ffaf"
-    //     }
-    //   }
-    // );
-    // let jsonData = await data.json();
-    // return await jsonData.api.teams[0];
-  
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // fetch for multiple urls
-  
     const promiseArray = [
       `https://api-football-v1.p.rapidapi.com/v2/teams/search/${team}`,
       "https://api-football-v1.p.rapidapi.com/v2/leagueTable/524"
@@ -50,3 +43,22 @@ async function getTeamInfo(team) {
   }
 
   export default getTeamInfo;
+
+
+      // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // fetch for one url
+  
+    // let data = await fetch(
+    //   `https://api-football-v1.p.rapidapi.com/v2/teams/search/${team}`,
+    //   {
+    //     headers: {
+    //       "X-RapidAPI-Key": "d690ddb5d3mshc99b2805d0e2c7ap171589jsn1f3bd4c4ffaf"
+    //     }
+    //   }
+    // );
+    // let jsonData = await data.json();
+    // return await jsonData.api.teams[0];
+  
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // fetch for multiple urls
+

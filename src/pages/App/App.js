@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import getTeamInfo from '../../utils/team-search-api';
+import * as teamsAPI from '../../utils/team-search-api';
+
 
 // page imports
 import HomePage from "../HomePage/HomePage";
@@ -44,6 +46,8 @@ class App extends Component {
       this.setState({ teams: results });
     });
   };
+
+
 
   render() {
     return (

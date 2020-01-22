@@ -16,6 +16,10 @@ class MyTeamsPage extends Component{
     }
 
     
+    handleDelTeam = () => {
+        teamsAPI.DeleteTeam()
+      }
+
     render(){
 
         if(this.state.teams[0].teams.length > 0){
@@ -29,7 +33,7 @@ class MyTeamsPage extends Component{
                         <h5 class="card-title">{team.name}</h5>
                         <p class="card-text">Founded: {team.founded}</p>
                     </div>
-                        <a href="#" class="btn btn-primary">Delete Team</a>
+                        <button onClick={this.handleDelTeam} class="btn btn-primary">Delete Team </button>
                     </div>
                 ))}
                 </div>
