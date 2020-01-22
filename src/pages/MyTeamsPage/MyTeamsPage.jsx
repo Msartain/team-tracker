@@ -23,11 +23,6 @@ class MyTeamsPage extends Component{
             return(
                 <div className="card-container">
                 {this.state.teams[0].teams.map(team => (
-                    // <div>
-                    // <p>{team.name}</p>
-                    // <img src={team.logo} />
-                    // </div>
-                    
                     <div class="card card-size" >
                     <img src={team.logo} class="card-img-top" alt="team logo"/>
                     <div class="card-body">

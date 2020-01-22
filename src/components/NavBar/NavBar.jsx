@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import * as teamsAPI from '../../utils/team-search-api';
+
 
 const Navbar = props => {
   let nav =
@@ -22,7 +24,7 @@ const Navbar = props => {
         <ul className="navbar-nav mr-auto">
           <Link to="/myTeams" style={{ textDecoration: "none" }}>
             <li className="nav-item">
-              <div className="nav-link">My Teams | </div>
+              <div className="nav-link" >My Teams | </div>
             </li>
           </Link>
         </ul>
