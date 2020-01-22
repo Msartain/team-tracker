@@ -8,12 +8,12 @@ const Navbar = props => {
       <ul className="navbar-nav ml-auto">
         <Link to="/signup">
           <li className="nav-item">
-            <div className="nav-link">Signup</div>
+            <div className="nav-link">Signup | </div>
           </li>
         </Link>
         <Link to="/login">
           <li className="nav-item">
-            <div className="nav-link">Login</div>
+            <div className="nav-link">Login | </div>
           </li>
         </Link>
       </ul>
@@ -22,7 +22,7 @@ const Navbar = props => {
         <ul className="navbar-nav mr-auto">
           <Link to="/myTeams" style={{ textDecoration: "none" }}>
             <li className="nav-item">
-              <div className="nav-link">My Teams</div>
+              <div className="nav-link">My Teams | </div>
             </li>
           </Link>
         </ul>
@@ -31,7 +31,7 @@ const Navbar = props => {
           <Link to="/">
             <li className="nav-item">
               <div className="nav-link" onClick={props.handleLogout}>
-                Logout
+                Logout |
               </div>
             </li>
           </Link>
@@ -58,13 +58,13 @@ const Navbar = props => {
             <Link to="" style={{ textDecoration: "none" }}>
               <li className="nav-item active">
                 <div className="nav-link">
-                  Team Tracker<span className="sr-only">(current)</span>
+                  Team Tracker | <span className="sr-only">(current)</span>
                 </div>
               </li>
             </Link>
             <Link to="/search" style={{ textDecoration: "none" }}>
             <li className="nav-item">
-              <div className="nav-link">Search</div>
+              <div className="nav-link">Search | </div>
             </li>
           </Link>
           </ul>

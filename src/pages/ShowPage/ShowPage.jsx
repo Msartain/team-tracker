@@ -25,6 +25,7 @@ const ShowPage = props => {
         venue_capacity: team.venue_capacity
       })
     });
+    props.history.push('/myteams')
   }
 
 
@@ -42,11 +43,9 @@ const ShowPage = props => {
             <p>Venue name: {team.venue_name}</p>
             <p>Venue capacity: {team.venue_capacity}</p>
             {props.user ? (
-              <Link to="/myteams">
                 <button class="btn btn-primary brn-lg" onClick={handleAddTeam}>
                   Add to My Teams
                 </button>
-              </Link>
             ) : (
               <Link to="/signup">
                 <button class="btn btn-primary brn-lg">

@@ -1,7 +1,15 @@
 const User = require('../models/user');
 
 module.exports = {
-    add
+    add,
+    index
+}
+
+
+async function index(req, res){
+    console.log('index controller hit')
+    const user = await User.find({});
+    res.status(201).json(user)
 }
 
 async function add(req, res){

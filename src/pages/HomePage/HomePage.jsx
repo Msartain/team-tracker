@@ -1,4 +1,5 @@
 import React from 'react';
+import './HomePage.css';
 
 
 
@@ -8,8 +9,8 @@ import React from 'react';
 
 const HomePage = (props) => {
     return (
-        <div className="pageTitle">
-            <h1>This is the Home page</h1>
+        <div className="bg">
+                <h1>Home page</h1>
         </div>
     )
 }

@@ -1,20 +1,44 @@
-import React from 'react';
+import React, {Component} from 'react';
+import * as teamsAPI from '../../utils/team-search-api';
 
 //retreive all teams from db
 
 //.map() all teams across my teams page in cards
 
+class MyTeamsPage extends Component{
+    state = {
+        teams: []
+    }
 
-const MyTeamsPage = (props) => {
-    return (
-        <div className="pageTitle">
-            <h1>This is the My Teams Page</h1>
-        
-        </div>
-    )
+
+   async componentDidMount(){
+    await teamsAPI.getAll().then(results => {
+        this.setState({teams : results})
+        });
+    }
+
+
+    render(){
+        return(
+            <div>
+                <div className="pageTitle">
+                     <h1>This is the My Teams Page</h1>
+                </div>
+            </div>
+        )
+    }
 }
 
+
 export default MyTeamsPage;
+
+// const MyTeamsPage = (props) => {
+//     return (
+        
+//     )
+// }
+
+// export default MyTeamsPage;
 
 // function homePage(req, res){
 //     User.find({}, function(err, users){

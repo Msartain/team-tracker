@@ -1,5 +1,6 @@
 .navbar {
-	background:black;
+	background:white;
+	border: 4px solid gray;
 }
 
 .navbar-brand {
@@ -8,7 +9,7 @@
 
 
 .navbar .nav-link {
-	color: white;
+	color: black;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -21,6 +22,6 @@
 }
 
 .NavBar-welcome {
-  color: white;
+  color: black;
   padding: 8px;
 }
