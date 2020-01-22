@@ -25,11 +25,6 @@ const Navbar = props => {
               <div className="nav-link">My Teams</div>
             </li>
           </Link>
-          <Link to="/search" style={{ textDecoration: "none" }}>
-            <li className="nav-item">
-              <div className="nav-link">Search</div>
-            </li>
-          </Link>
         </ul>
 
         <ul className="navbar-nav ml-auto">
@@ -69,6 +64,11 @@ const Navbar = props => {
                 </div>
               </li>
             </Link>
+            <Link to="/search" style={{ textDecoration: "none" }}>
+            <li className="nav-item">
+              <div className="nav-link">Search</div>
+            </li>
+          </Link>
           </ul>
           {nav}
         </div>
