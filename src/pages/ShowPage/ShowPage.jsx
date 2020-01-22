@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 import "./ShowPage.css";
 
 const ShowPage = props => {
+    
   let team = null;
   let league = null;
   let display = null;
-
-  console.log(team);
-  console.log(league);
 
   async function handleAddTeam() {
     //fetch call to backend
@@ -28,6 +26,8 @@ const ShowPage = props => {
       })
     });
   }
+
+
   if (props.team.length > 0) {
     team = props.team[0].api.teams[0];
     league = props.team[1].api.standings[0];

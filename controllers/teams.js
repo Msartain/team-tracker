@@ -14,3 +14,24 @@ async function add(req, res){
         res.status(201).json('added to db');
     });
 }
+
+//delete
+
+//show
+
+// function homePage(req, res){
+//     User.find({}, function(err, users){
+//         if (err) return;
+//         res.render('loggedIn/home',{
+//             users,
+//             user: req.user,
+//         })
+//     } ) 
+// }
+
+// function show(req, res){
+//     User.findOne({'posts._id': req.params.postId}).then(function(user) {
+//         let post = user.posts.id(req.params.postId);
+//         res.render('loggedIn/show', {post: post, user: req.user})
+//     })
+// }

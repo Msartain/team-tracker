@@ -42,9 +42,7 @@ const Navbar = props => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
-        <Link to="/" style={{ textDecoration: "none" }}>
           <div className="navbar-brand" href="#"></div>
-        </Link>
         <button
           className="navbar-toggler"
           type="button"
