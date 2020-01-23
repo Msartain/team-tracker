@@ -7,11 +7,11 @@ Search for your favorite teams, save them to your profile and view the current l
 
 ## Wireframes
 
-![Landing page]()
+![Landing page](src/images/wireframe.jpeg)
 
 ## ERD:
 
-![Entity Relationship Diagram]()
+![Entity Relationship Diagram](src/images/Team-Tracker-ERD.png)
 
 
 ## Technologies Used:
@@ -50,6 +50,7 @@ https://pitch-sitch.herokuapp.com/
 
 ## Future enhancements
 
+- refactor to have page render a lot cleaner but utilizing components more.
 - Merge app functionality with Gerardo's soccer betting app
 - Access to league table view whenever the user wants
 - More stat data and trasnfer news for each team
