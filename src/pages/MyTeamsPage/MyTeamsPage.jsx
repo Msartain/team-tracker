@@ -9,14 +9,14 @@ class MyTeamsPage extends Component{
     }
 
   
-   async componentDidMount(){
-    await teamsAPI.getAll().then(results => {
-        this.setState({teams : results})
-        });
-    }
+    async componentDidMount(){
+        const teams = await teamsAPI.getAll()
+            this.setState({ teams })
+        }
+
 
     
-    handleDelTeam = (id, user) => {
+    handleDelTeam = async (id, user) => {
         const options ={ 
             method: 'POST',
             headers: {
@@ -24,18 +24,35 @@ class MyTeamsPage extends Component{
             },
             body: JSON.stringify({teamId: id, userId: user})
         }
-        teamsAPI.deleteTeam(options).then(result => {
-            const newState = this.state.teams.filter(
-                (el, id) => id !== result)
-                this.setState({teams: newState})
-        })
+        await teamsAPI.deleteTeam(options);
+        const teams = await teamsAPI.getAll()
+        this.setState({ teams })
+        // this.setState(state => ({
+        //     teams: {teams : state.teams[0].teams.filter(team => team._id !== id)}
+        // }));
+
+        // })).then(result => {
+        //     const newState = this.state.teams.filter(
+        //         (el, id) => id !== result)
+        //         this.setState({teams: newState},() => this.props.history.push('/myteams'))
+        // })
       }
+
+     
+    //  componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.teams !== this.state.teams) {
+    //          teamsAPI.getAll()
+    //          console.log('state has changed.')
+    //         }
+    //     }
+        
 
     render(){
 
-        if(this.state.teams[0].teams.length > 0){
+        if(this.state.teams[0].teams){
             
             return(
+                <div className="teams-container">
                 <div className="card-container">
                 {this.state.teams[0].teams.map(team => (
                     <div class="card card-size" >
@@ -43,19 +60,21 @@ class MyTeamsPage extends Component{
                     <div class="card-body">
                         <h5 class="card-title">{team.name}</h5>
                         <p class="card-text">Founded: {team.founded}</p>
+                        <p class="card-text">country: {team.country}</p>
+                        <p class="card-text">venue name: {team.venue_name}</p>
+                        <p class="card-text">venue capacity: {team.venue_capacity}</p>
                     </div>
                         <button onClick={ () => this.handleDelTeam(team._id, this.state.teams[0]._id)} class="btn btn-primary">Delete Team </button>
                     </div>
                 ))}
                 </div>
+                </div>
             ) 
         }else {
 
             return(
-                <div>
-                    <div>
-                         <h1>loading</h1>
-                    </div>
+                <div className="container">
+                         <h1>loading...</h1>
                 </div>
             )
       

@@ -22,7 +22,7 @@ const Navbar = props => {
     ) : (
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-          <Link to="/myTeams" style={{ textDecoration: "none" }}>
+          <Link to="/myteams" style={{ textDecoration: "none" }}>
             <li className="nav-item">
               <div className="nav-link" >My Teams | </div>
             </li>
@@ -60,7 +60,7 @@ const Navbar = props => {
             <Link to="" style={{ textDecoration: "none" }}>
               <li className="nav-item active">
                 <div className="nav-link">
-                  Team Tracker | <span className="sr-only">(current)</span>
+                  Pitch Sitch | <span className="sr-only">(current)</span>
                 </div>
               </li>
             </Link>

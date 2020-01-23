@@ -4,3 +4,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.search-container{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../images/grass.jpg');
+    margin: none;
+}

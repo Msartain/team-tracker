@@ -1,3 +1,9 @@
+.teams-container{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../images/touchline.jpg');
+    margin: none;
+}
 .card-size {
     width: 15rem;
     height: auto;

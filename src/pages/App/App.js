@@ -51,7 +51,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="parent">
         <div>
           <NavBar user={this.state.user} handleLogout={this.handleLogout} history={this.history}/>
         </div>
@@ -59,7 +59,7 @@ class App extends Component {
           <Route exact path="/" render={() => <HomePage />} />
           <Route
             exact
-            path="/myTeams"
+            path="/myteams"
             render={({ history }) => <MyTeamsPage 
               history={history}
             />}
