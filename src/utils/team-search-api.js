@@ -1,12 +1,21 @@
 
-export function DeleteTeam() {
-  return fetch("/api/teams/delete",{
-    method: 'DELETE'
-  })
-  .then(res => res.json()
-    )
-  };
+// export function deleteTeam(teamId) {
+//   console.log('team search api delete ' + teamId) 
+//   return fetch('/api/teams/delete/')
+//   .then(res => res.json()
+//     )
+//   };
 
+
+export async function deleteTeam(options){
+  try{
+    const deletedTeam = await fetch('/api/teams/delete/', options)
+    const data = await deletedTeam.json()
+    return await data
+  } catch(error) {
+    console.log(error)
+  }
+}
 
 export function getAll(){
     return fetch('/api/teams/index')

@@ -9,13 +9,17 @@ module.exports = {
 
 function deleteTeam(req, res){
     console.log('delete controller hit')
-    // User.findOne({'posts._id': req.params.id}).then(function(user){
-    //     let post = user.posts.id(req.params.id);
-    //     post.remove(req.params.id)
-    //     user.save(function(err){
-    //        res.status(201).json(user)
-    // })
-}
+    const userId = req.body.userId
+    const teamId = req.body.teamId
+    User.findById(userId).then(user => {
+        const team = user.teams.id(teamId)
+        user.teams.remove(team)
+        user.save(()=>{
+          res.status(201).json(req.body.teamId)
+        })
+      })
+    }
+
 
 async function index(req, res){
     console.log('index controller hit')
@@ -24,7 +28,7 @@ async function index(req, res){
 }
 
 async function add(req, res){
-    console.log('controller hit')
+    console.log('add controller hit')
     let user = await User.findOne({email: req.body.user})
     console.log(user)
     user.teams.push(req.body);

@@ -16,8 +16,19 @@ class MyTeamsPage extends Component{
     }
 
     
-    handleDelTeam = () => {
-        teamsAPI.DeleteTeam()
+    handleDelTeam = (id, user) => {
+        const options ={ 
+            method: 'POST',
+            headers: {
+                "content-type" : "application/json" 
+            },
+            body: JSON.stringify({teamId: id, userId: user})
+        }
+        teamsAPI.deleteTeam(options).then(result => {
+            const newState = this.state.teams.filter(
+                (el, id) => id !== result)
+                this.setState({teams: newState})
+        })
       }
 
     render(){
@@ -33,7 +44,7 @@ class MyTeamsPage extends Component{
                         <h5 class="card-title">{team.name}</h5>
                         <p class="card-text">Founded: {team.founded}</p>
                     </div>
-                        <button onClick={this.handleDelTeam} class="btn btn-primary">Delete Team </button>
+                        <button onClick={ () => this.handleDelTeam(team._id, this.state.teams[0]._id)} class="btn btn-primary">Delete Team </button>
                     </div>
                 ))}
                 </div>
