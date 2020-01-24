@@ -25,6 +25,9 @@ Node.js
 JWT authentication
 CSS
 
+### Trello Link
+
+https://trello.com/b/tlQF4bTn/team-tracker
 
 ### App screenshots
 
@@ -40,7 +43,7 @@ Show view:
 
 ![Show page]()
 
-My Teasm view:
+My Teaam view:
 
 ![Edit post page]()
 
@@ -54,3 +57,4 @@ https://pitch-sitch.herokuapp.com/
 - Merge app functionality with Gerardo's soccer betting app
 - Access to league table view whenever the user wants
 - More stat data and trasnfer news for each team
+
