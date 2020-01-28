@@ -61,6 +61,7 @@ class App extends Component {
             exact
             path="/myteams"
             render={({ history }) => <MyTeamsPage 
+              user={this.state.user}
               history={history}
             />}
           />

@@ -22,10 +22,10 @@ function deleteTeam(req, res){
 
 
 async function index(req, res){
-    console.log('index controller hit')
-    const user = await User.find({});
-    res.status(201).json(user)
+    const user = await User.findById(req.body._id);
+    res.status(201).json(user.teams)
 }
+
 
 async function add(req, res){
     console.log('add controller hit')
@@ -37,24 +37,3 @@ async function add(req, res){
         res.status(201).json('added to db');
     });
 }
-
-//delete
-
-//show
-
-// function homePage(req, res){
-//     User.find({}, function(err, users){
-//         if (err) return;
-//         res.render('loggedIn/home',{
-//             users,
-//             user: req.user,
-//         })
-//     } ) 
-// }
-
-// function show(req, res){
-//     User.findOne({'posts._id': req.params.postId}).then(function(user) {
-//         let post = user.posts.id(req.params.postId);
-//         res.render('loggedIn/show', {post: post, user: req.user})
-//     })
-// }

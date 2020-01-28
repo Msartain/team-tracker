@@ -4,7 +4,7 @@ const teamCtrl = require('../controllers/teams');
 
 /*---------- Public Routes ----------*/
 router.post('/add', teamCtrl.add)
-router.get('/index', teamCtrl.index)
+router.post('/index', teamCtrl.index)
 router.post('/delete', teamCtrl.delete)
 
 

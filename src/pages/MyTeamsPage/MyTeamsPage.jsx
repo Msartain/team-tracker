@@ -3,20 +3,30 @@ import './MyTeams.css'
 import * as teamsAPI from '../../utils/team-search-api';
 
 
+
 class MyTeamsPage extends Component{
     state = {
-        teams: [{teams : []}],
+        teams: [],
     }
 
   
     async componentDidMount(){
-        const teams = await teamsAPI.getAll()
-            this.setState({ teams })
+        const options = {
+            method: 'POST',
+            headers: {
+                "content-type" : "application/json"
+            },
+            body: JSON.stringify(this.props.user)
+        }
+      
+        const teams = await teamsAPI.getAll(options)
+        this.setState({ teams })
         }
 
 
     
     handleDelTeam = async (id, user) => {
+        console.log('1 del team handle clicked - ' + id + ' ' + user)
         const options ={ 
             method: 'POST',
             headers: {
@@ -25,17 +35,10 @@ class MyTeamsPage extends Component{
             body: JSON.stringify({teamId: id, userId: user})
         }
         await teamsAPI.deleteTeam(options);
-        const teams = await teamsAPI.getAll()
-        this.setState({ teams })
-        // this.setState(state => ({
-        //     teams: {teams : state.teams[0].teams.filter(team => team._id !== id)}
-        // }));
-
-        // })).then(result => {
-        //     const newState = this.state.teams.filter(
-        //         (el, id) => id !== result)
-        //         this.setState({teams: newState},() => this.props.history.push('/myteams'))
-        // })
+        // const teams = await teamsAPI.getAll(options)
+        // this.setState({ teams })
+        const newState = this.state.teams.filter(team => team._id !== id)
+        this.setState({ teams: newState})
       }
 
      
@@ -49,12 +52,12 @@ class MyTeamsPage extends Component{
 
     render(){
 
-        if(this.state.teams[0].teams){
+        if(this.state.teams){
             
             return(
                 <div className="teams-container">
                 <div className="card-container">
-                {this.state.teams[0].teams.map(team => (
+                {this.state.teams.map(team => (
                     <div class="card card-size" >
                     <img src={team.logo} class="card-img-top" alt="team logo"/>
                     <div class="card-body">
@@ -64,7 +67,7 @@ class MyTeamsPage extends Component{
                         <p class="card-text">venue name: {team.venue_name}</p>
                         <p class="card-text">venue capacity: {team.venue_capacity}</p>
                     </div>
-                        <button onClick={ () => this.handleDelTeam(team._id, this.state.teams[0]._id)} class="btn btn-primary">Delete Team </button>
+                        <button onClick={ () => this.handleDelTeam(team._id, this.props.user._id)} class="btn btn-primary">Delete Team </button>
                     </div>
                 ))}
                 </div>
