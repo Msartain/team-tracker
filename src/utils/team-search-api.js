@@ -66,4 +66,3 @@ export default getTeamInfo;
 // return await jsonData.api.teams[0];
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// fetch for multiple urls

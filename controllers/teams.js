@@ -8,7 +8,6 @@ module.exports = {
 
 
 function deleteTeam(req, res){
-    console.log('delete controller hit')
     const userId = req.body.userId
     const teamId = req.body.teamId
     User.findById(userId).then(user => {
@@ -28,7 +27,6 @@ async function index(req, res){
 
 
 async function add(req, res){
-    console.log('add controller hit')
     let user = await User.findOne({email: req.body.user})
     console.log(user)
     user.teams.push(req.body);

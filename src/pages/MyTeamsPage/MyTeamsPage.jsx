@@ -26,7 +26,6 @@ class MyTeamsPage extends Component{
 
     
     handleDelTeam = async (id, user) => {
-        console.log('1 del team handle clicked - ' + id + ' ' + user)
         const options ={ 
             method: 'POST',
             headers: {
@@ -35,21 +34,11 @@ class MyTeamsPage extends Component{
             body: JSON.stringify({teamId: id, userId: user})
         }
         await teamsAPI.deleteTeam(options);
-        // const teams = await teamsAPI.getAll(options)
-        // this.setState({ teams })
         const newState = this.state.teams.filter(team => team._id !== id)
         this.setState({ teams: newState})
       }
 
-     
-    //  componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.teams !== this.state.teams) {
-    //          teamsAPI.getAll()
-    //          console.log('state has changed.')
-    //         }
-    //     }
         
-
     render(){
 
         if(this.state.teams){

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import getTeamInfo from '../../utils/team-search-api';
-import * as teamsAPI from '../../utils/team-search-api';
 
 
 // page imports
