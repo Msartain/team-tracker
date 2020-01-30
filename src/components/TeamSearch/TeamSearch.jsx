@@ -9,9 +9,9 @@ const TeamSearch = (props) => (
 
     <div className="pageTitle">
         <div className="searchBar">
-        <input onChange={(e) => props.handleOnChange(e)} placeholder="Search a team" />
+        <input class="form-control mr-sm-2" onChange={(e) => props.handleOnChange(e)} placeholder="Search a team" />
         <Link to='/showpage'>
-        <button onClick={props.handleOnClick}>Search</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" onClick={props.handleOnClick}>Search</button>
         </Link>
         </div>
     </div>

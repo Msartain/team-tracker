@@ -1,9 +1,13 @@
 .navbar {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 	background:white;
+	color: black;
 	border: 2px solid black;
 }
 
-.navbar-brand {
+/* .navbar-brand {
 	padding: 8px;
 }
 
@@ -24,4 +28,4 @@
 .NavBar-welcome {
   color: black;
   padding: 8px;
-}
+} */

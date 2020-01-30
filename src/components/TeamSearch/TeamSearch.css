@@ -1,6 +1,7 @@
 .searchBar{
-   padding-top: 40%;
+    display: flex;
 }
+
 
 button{
     margin-left: 15px;
