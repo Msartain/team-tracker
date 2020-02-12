@@ -4,10 +4,11 @@
   justify-content: center;
   align-items: center;
   margin: 140px;
+  
   }
 
 
   .btn-form {
-    color: white;
+    color: black;
     font-size: 30px;
 }
