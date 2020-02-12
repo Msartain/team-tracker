@@ -1,7 +1,13 @@
 .LoginPage {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 140px;
   }
+
+
+  .btn-form {
+    color: white;
+    font-size: 30px;
+}

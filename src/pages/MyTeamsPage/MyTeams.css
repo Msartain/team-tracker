@@ -1,8 +1,11 @@
 .teams-container{
-    width: 100vw;
+    /* width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
     background-image: url('../../images/touchline.jpg');
-    margin: none;
+    margin: 140px;
 }
 .card-size {
     width: 15rem;

@@ -7,7 +7,7 @@ const NavigationBar = props => {
     props.user === null ? (
       <>
         <Navbar bg="dark" variant="dark" fixed="top" >
-          <Navbar.Brand href="/home">Pitch Sitch</Navbar.Brand>
+          <Navbar.Brand href="/">Pitch Sitch</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/search">Search</Nav.Link>

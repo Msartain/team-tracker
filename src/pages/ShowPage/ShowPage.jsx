@@ -47,7 +47,7 @@ const ShowPage = props => {
               ) : (
                 <Link to="/signup">
                   <button class="btn btn-primary brn-lg">
-                    Sign up to save teams!
+                    Sign up or Log In to save teams!
                   </button>
                 </Link>
               )}

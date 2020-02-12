@@ -1,7 +1,15 @@
 .header-footer{
     color: white;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    font-size: 30px;
+
 }
 
-.btn {
+.btn-form {
     color: white;
+    font-size: 30px;
 }
+
+
