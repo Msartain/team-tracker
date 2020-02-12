@@ -1,4 +1,4 @@
-
+const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY
 
 export async function getAll(options) {
   try {
@@ -28,7 +28,7 @@ async function getTeamInfo(team) {
   ];
   const options = {
     headers: {
-      "X-RapidAPI-Key": process.env.REACT_APP_API_KEY
+      "X-RapidAPI-Key": REACT_APP_API_KEY
     }
   };
   async function getData(urls, options) {
