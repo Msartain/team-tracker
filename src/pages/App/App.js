@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import getTeamInfo from '../../utils/team-search-api';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 // page imports
@@ -14,7 +16,7 @@ import SearchPage from "../SearchPage/SearchPage";
 import ShowPage from "../ShowPage/ShowPage";
 
 //component imports
-import NavBar from "../../components/NavBar/NavBar";
+import NavigationBar from "../../components/NavBar/NavBar";
 
 class App extends Component {
   state = {
@@ -52,7 +54,7 @@ class App extends Component {
     return (
       <div className="parent">
         <div>
-          <NavBar user={this.state.user} handleLogout={this.handleLogout} history={this.history}/>
+          <NavigationBar user={this.state.user} handleLogout={this.handleLogout} history={this.history}/>
         </div>
         <Switch>
           <Route exact path="/" render={() => <HomePage />} />

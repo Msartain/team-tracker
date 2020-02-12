@@ -1,10 +1,6 @@
 .navbar {
 	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	background:white;
-	color: black;
-	border: 2px solid black;
+	flex-direction: row;
 }
 
 /* .navbar-brand {
