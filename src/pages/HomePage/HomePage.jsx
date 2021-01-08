@@ -10,14 +10,14 @@ const HomePage = props => {
   return (
     <div className="bg">
         <div className="container">
-      <div class="card text-center">
-        <div class="card-body">
-          <h5 class="card-title">Welcome to Pitch Sitch!</h5>
-          <p class="card-text">
+      <div className="card text-center">
+        <div className="card-body">
+          <h5 className="card-title">Welcome to Pitch Sitch!</h5>
+          <p className="card-text">
             A Premier League search tool to keep track of your favorite teams. 
           </p>
           <Link to='/search'>
-          <button class="btn btn-primary">
+          <button className="btn btn-primary">
             Search
           </button>
           </Link>

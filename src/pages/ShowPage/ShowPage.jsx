@@ -31,22 +31,22 @@ const ShowPage = props => {
     league = props.team[1].api.standings[0];
     display = (
       <div className="show">
-        <div class="jumbotron">
+        <div className="jumbotron">
           <div className="teamContainer">
             <div className="teamInfo">
-              <h1 class="display-4">{team.name}</h1>
+              <h1 className="display-4">{team.name}</h1>
               <img src={team.logo} alt="Team Logo" />
               <p>Year founded: {team.founded}</p>
               <p>Country: {team.country}</p>
               <p>Venue name: {team.venue_name}</p>
               <p>Venue capacity: {team.venue_capacity}</p>
               {props.user ? (
-                <button class="btn btn-primary brn-lg" onClick={handleAddTeam}>
+                <button className="btn btn-primary brn-lg" onClick={handleAddTeam}>
                   Add to My Teams
                 </button>
               ) : (
                 <Link to="/signup">
-                  <button class="btn btn-primary brn-lg">
+                  <button className="btn btn-primary brn-lg">
                     Sign up or Log In to save teams!
                   </button>
                 </Link>
@@ -55,7 +55,7 @@ const ShowPage = props => {
           </div>
         </div>
         <div className="leagueInfo">
-          <table class="table table-dark">
+          <table className="table table-dark">
             <thead>
               <tr>
                 <th scope="col">Pos</th>

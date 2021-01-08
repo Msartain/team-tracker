@@ -1,69 +1,82 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 import './SignupForm.css'
 
 
-class SignupForm extends Component {
+const SignupForm = (props) => {
 
-  state = {
-    name: '',
-    email: '',
-    password: '',
-    passwordConf: ''
-  };
+  // state = {
+  //   name: '',
+  //   email: '',
+  //   password: '',
+  //   passwordConf: ''
+  // };
 
-  handleChange = (e) => {
-    this.props.updateMessage('');
-    this.setState({
-      // Using ES2015 Computed Property Names
-      [e.target.name]: e.target.value
-    });
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConf, setPasswordConf] = useState('');
+
+  const handleChange = (e) => {
+    switch(e.target.name) {
+      case 'name': 
+        setName(e.target.value);
+        break;
+      case 'email': 
+        setEmail(e.target.value);
+        break;
+      case 'password': 
+        setPassword(e.target.value);
+        break;
+      case 'passwordConf': 
+        setPasswordConf(e.target.value);
+        break;
+    }
+    // props.updateMessage('');
   }
 
 
-  handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await userService.signup(this.state);
+      await userService.signup({name, email, password, passwordConf});
       // Let <App> know a user has signed up!
-      this.props.handleSignupOrLogin();
+      props.handleSignupOrLogin();
       // Successfully signed up - show GamePage
-      this.props.history.push('/');
+      props.history.push('/');
     } catch (err) {
       // Invalid user data (probably duplicate email)
-      this.props.updateMessage(err.message);
+      props.updateMessage(err.message);
     }
   }
 
-  isFormInvalid() {
-    return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
+  const isFormInvalid = () => {
+    return !(name && email && password === passwordConf);
   }
 
-
-  render() {
     return (
       <div>
         <header className="header-footer">Sign Up</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
+        <form className="form-horizontal" onSubmit={handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
+              <input type="text" className="form-control" placeholder="Name" value={name} name="name" onChange={handleChange} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+              <input type="email" className="form-control" placeholder="Email" value={email} name="email" onChange={handleChange} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
+              <input type="password" className="form-control" placeholder="Password" value={password} name="password" onChange={handleChange} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+              <input type="password" className="form-control" placeholder="Confirm Password" value={passwordConf} name="passwordConf" onChange={handleChange} />
             </div>
           </div>
           <div className="form-group">
@@ -76,7 +89,7 @@ class SignupForm extends Component {
         </form>
       </div>
     );
-  }
 }
+
 
 export default SignupForm;

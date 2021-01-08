@@ -23,6 +23,7 @@
     "serve-favicon": "^2.5.0"
   },
   "scripts": {
+    "server": "nodemon server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

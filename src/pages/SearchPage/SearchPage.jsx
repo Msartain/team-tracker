@@ -6,10 +6,10 @@ const SearchPage = props => {
   return (
     <div className="search-container">
        <div className="container">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">Search for a team.</h5>
-            <p class="card-text">
+        <div className="card text-center">
+          <div className="card-body">
+            <h5 className="card-title">Search for a team.</h5>
+            <p className="card-text">
               Pitch Sitch currently only supports The Premier League. Check back soon for future enhancements!
             </p>
             <TeamSearch
